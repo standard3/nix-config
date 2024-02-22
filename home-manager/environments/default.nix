@@ -5,5 +5,8 @@
 , pkgs
 , ...
 }: {
-
+  imports = [
+    ./compositors/hyprland
+    ./desktop/kde
+  ];
 }
