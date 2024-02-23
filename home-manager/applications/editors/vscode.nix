@@ -31,6 +31,9 @@
     ];
 
     userSettings = {
+      # Window
+      "window.zoomLevel" = 1;
+
       # Workbench
       "workbench.colorTheme" = "Gruvbox Dark Medium";
       "workbench.iconTheme" = "material-icon-theme";
