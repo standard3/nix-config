@@ -82,4 +82,8 @@
       "nix.serverPath" = "rnix-lsp";
     };
   };
+
+  home.packages = with pkgs; [
+    rnix-lsp # Nix language server
+  ];
 }

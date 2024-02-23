@@ -10,8 +10,6 @@ in {
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
-
-    # You can also split up your configuration and import pieces of it here:
     ../environments
     ../applications
   ];
@@ -29,18 +27,10 @@ in {
     homeDirectory = "/home/${username}";
   };
 
-  programs.neovim.enable = true;
-
-  home.packages = with pkgs; [
-    firefox
-
-    # related to editor
-    rnix-lsp
-  ];
-
   # Enable home-manager
   programs.home-manager.enable = true;
 
+  # todo: remove from here
   programs.git = {
     enable = true;
 
