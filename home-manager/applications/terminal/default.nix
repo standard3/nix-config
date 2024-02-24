@@ -1,10 +1,4 @@
 {
-  inputs
-, lib
-, config
-, pkgs
-, ...
-}: {
   imports = [
     ./alacritty.nix
     ./fish.nix
