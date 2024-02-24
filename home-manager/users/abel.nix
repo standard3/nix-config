@@ -3,6 +3,7 @@
 , lib
 , config
 , pkgs
+, home-manager
 , ...
 }: let
     username = "abel";

@@ -3,14 +3,17 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
-
-    # Nur
-    nur.url = "github:nix-community/NUR";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-23.05";
+    home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Firefox extensions
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # hardware.url = "github:nixos/nixos-hardware";
 
@@ -19,12 +22,8 @@
     # nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    ...
-  } @ inputs: let
+  outputs = { self, nixpkgs, home-manager, ...} @ inputs:
+  let
     inherit (self) outputs;
   in {
     # NixOS configuration entrypoint
@@ -36,12 +35,12 @@
     };
 
     # Standalone home-manager configuration entrypoint
-    homeConfigurations = {
-      "abel@jupiter" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = { inherit inputs outputs; };
-        modules = [ ./home-manager/users/abel.nix ];
-      };
-    };
+    # homeConfigurations = {
+    #   "abel@jupiter" = home-manager.lib.homeManagerConfiguration {
+    #     pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+    #     extraSpecialArgs = { inherit inputs outputs; };
+    #     modules = [ ./home-manager/users/abel.nix ];
+    #   };
+    # };
   };
 }
