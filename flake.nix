@@ -19,14 +19,19 @@
       url = "github:dwarfmaster/arkenfox-nixos";
     };
 
-    # hardware.url = "github:nixos/nixos-hardware";
+    # Zellij plugins
+    zjstatus = {
+      url = "github:dj95/zjstatus";
+    };
+
+    hardware.url = "github:nixos/nixos-hardware";
 
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
     # nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { self, nixpkgs, home-manager, ...} @ inputs:
+  outputs = { self, hardware, nixpkgs, home-manager, ... } @ inputs:
   let
     inherit (self) outputs;
   in {
@@ -34,17 +39,11 @@
     nixosConfigurations = {
       jupiter = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
-        modules = [ ./nixos/configuration.nix ];
+        modules = [
+          hardware.nixosModules.tuxedo-infinitybook-pro14-gen7
+          ./nixos/configuration.nix
+        ];
       };
     };
-
-    # Standalone home-manager configuration entrypoint
-    # homeConfigurations = {
-    #   "abel@jupiter" = home-manager.lib.homeManagerConfiguration {
-    #     pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-    #     extraSpecialArgs = { inherit inputs outputs; };
-    #     modules = [ ./home-manager/users/abel.nix ];
-    #   };
-    # };
   };
 }

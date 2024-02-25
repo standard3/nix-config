@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
 {
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     lexend
-    (nerdfonts.override { fonts = [ "MesloLGM" ]; })
+    (nerdfonts.override { fonts = [ "Meslo" ]; })
   ];
 }

@@ -1,10 +1,6 @@
+{ pkgs, ... }:
+
 {
-  inputs
-, lib
-, config
-, pkgs
-, ...
-}: {
   programs.vscode = {
     enable = true;
 
@@ -20,6 +16,7 @@
       jnoortheen.nix-ide
       rust-lang.rust-analyzer
       ms-python.python
+      # tamasfe.even-better-toml
 
       # Themes & icons
       jdinhlife.gruvbox
