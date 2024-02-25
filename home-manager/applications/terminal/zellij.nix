@@ -2,45 +2,10 @@
 
 let
   zjstatus = inputs.zjstatus.packages.${pkgs.system}.default;
-  # ${zjstatus}/bin/zjstatus.wasm
 in {
   programs.zellij = {
     enable = true;
     enableFishIntegration = true;
-
-    # settings = {
-    #   # UI & theme
-    #   theme = "gruvbox-dark";
-
-    #   pane_frames = true;
-    #   ui.pane_frames = {
-    #     rounded_corners = true;
-    #     hide_session_name = true;
-    #   };
-
-    #   # Options
-    #   mouse_mode = true;
-    #   copy_on_select = false;
-    #   default_shell = "fish";
-    #   on_force_close = "quit";
-    #   styled_underlines = true;
-    #   session_serialization = true;
-    #   pane_viewport_serialization = true;
-    #   scrollback_editor = "vim";
-
-    #   # Layouts
-    #   layout_dir = "";
-    #   default_layout = "custom";
-
-    #   # Plugins
-    #   plugins = {
-    #       tab-bar.path = "tab-bar";
-    #       status-bar.path = "status-bar";
-    #       strider.path = "strider";
-    #       compact-bar.path = "compact-bar";
-    #       session-manager.path = "session-manager";
-    #   };
-    # };
   };
 
   xdg.configFile."zellij/config.kdl".text = ''
