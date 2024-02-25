@@ -66,6 +66,12 @@
   services.xserver.desktopManager.plasma5.enable = true;
 
   environment.systemPackages = with pkgs; [
+    btop
+    ripgrep
+    eza
+    wget
+    curl
+
     armcord
   ];
 
@@ -74,6 +80,7 @@
     abel = {
       initialPassword = "azerty123";
       isNormalUser = true;
+      shell = pkgs.fish;
 
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
@@ -82,6 +89,8 @@
       extraGroups = [ "wheel" "networkmanager" ];
     };
   };
+
+  programs.fish.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

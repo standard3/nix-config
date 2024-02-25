@@ -1,3 +1,5 @@
+{ lib, ... }:
+
 {
   # Enable networking
   networking.hostName = "jupiter";

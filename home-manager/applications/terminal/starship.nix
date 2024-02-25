@@ -1,5 +1,5 @@
 {
-  programs.zellij = {
+  programs.starship = {
     enable = true;
     enableFishIntegration = true;
   };

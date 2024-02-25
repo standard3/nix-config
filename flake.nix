@@ -15,6 +15,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    arkenfox = {
+      url = "github:dwarfmaster/arkenfox-nixos";
+    };
+
     # hardware.url = "github:nixos/nixos-hardware";
 
     # Shameless plug: looking for a way to nixify your themes and make
