@@ -2,7 +2,6 @@
 
 {
   # Enable networking
-  networking.hostName = "jupiter";
   networking.networkmanager.enable = true;
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

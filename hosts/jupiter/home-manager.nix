@@ -8,7 +8,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
-      abel = import ../home-manager/users/abel.nix;
+      abel = import ../home/users/abel.nix;
     };
 
     useGlobalPkgs = true;

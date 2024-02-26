@@ -41,7 +41,7 @@
         specialArgs = { inherit inputs outputs; };
         modules = [
           hardware.nixosModules.tuxedo-infinitybook-pro14-gen7
-          ./nixos/configuration.nix
+          ./hosts/jupiter
         ];
       };
     };

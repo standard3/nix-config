@@ -64,10 +64,10 @@ in {
         DisplayBookmarksToolbar = "always";
       };
 
-      ExtensionSettings = {
-        "*".installation_mode = "blocked";
-        blocked_install_message = "Imperative installation is banned !";
-      };
+      # ExtensionSettings = {
+      #   "*".installation_mode = "blocked";
+      #   blocked_install_message = "Imperative installation is banned !";
+      # };
     };
 
     profiles.default = {
@@ -165,115 +165,119 @@ in {
         "browser.shell.defaultBrowserCheckCount" = 1;
         "browser.startup.homepage" = "https://start.duckduckgo.com";
         "browser.uiCustomization.state" = ''{"placements":{"widget-overflow-fixed-list":[],"nav-bar":["back-button","forward-button","stop-reload-button","home-button","urlbar-container","downloads-button","library-button","ublock0_raymondhill_net-browser-action","_testpilot-containers-browser-action"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["tabbrowser-tabs","new-tab-button","alltabs-button"],"PersonalToolbar":["import-button","personal-bookmarks"]},"seen":["save-to-pocket-button","developer-button","ublock0_raymondhill_net-browser-action","_testpilot-containers-browser-action"],"dirtyAreaCache":["nav-bar","PersonalToolbar","toolbar-menubar","TabsToolbar","widget-overflow-fixed-list"],"currentVersion":18,"newElementCount":4}'';
+        "browser.ctrlTab.recentlyUsedOrder" = true;
+        "extensions.getAddons.showPane" = false;
+        "extensions.htmlaboutaddons.recommendations.enabled" = false;
 
         # Security & privacy
         "dom.security.https_only_mode" = true;
         "identity.fxaccounts.enabled" = false;
         "privacy.trackingprotection.enabled" = true;
+        "privacy.webrtc.legacyGlobalIndicator" = false;
         "signon.rememberSignons" = false;
 
         # Theming
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "gfx.webrender.all" = true;
         # "layers.acceleration.force-enabled" = true;
-        # "gfx.webrender.all" = true;
         # "svg.context-properties.content.enabled" = true;
       };
 
-      # userChrome = ''
-      #   /* Cascade */
-      #   @import '${firefox-cascade}/chrome/includes/cascade-config-mouse.css';
-      #   @import '${firefox-cascade}/chrome/includes/cascade-layout.css';
-      #   @import '${firefox-cascade}/chrome/includes/cascade-floating-panel.css';
-      #   @import '${firefox-cascade}/chrome/includes/cascade-nav-bar.css';
-      #   @import '${firefox-cascade}/chrome/includes/cascade-tabs.css';
-      #   @import '${firefox-cascade}/chrome/includes/cascade-colours.css';
+      userChrome = ''
+        /* Cascade */
+        @import '${firefox-cascade}/chrome/includes/cascade-config-mouse.css';
+        @import '${firefox-cascade}/chrome/includes/cascade-layout.css';
+        @import '${firefox-cascade}/chrome/includes/cascade-floating-panel.css';
+        @import '${firefox-cascade}/chrome/includes/cascade-nav-bar.css';
+        @import '${firefox-cascade}/chrome/includes/cascade-tabs.css';
+        @import '${firefox-cascade}/chrome/includes/cascade-colours.css';
 
-      #   @import '${firefox-cascade}/integrations/tabcenter-reborn/cascade-tcr.css';
+        @import '${firefox-cascade}/integrations/tabcenter-reborn/cascade-tcr.css';
 
-      #   @media (prefers-color-scheme: dark) { :root {
-      #     /* These colours are (mainly) used by the
-      #       Container Tabs Plugin */
-      #     --uc-identity-colour-blue:      #458588;
-      #     --uc-identity-colour-turquoise: #689d6a;
-      #     --uc-identity-colour-green:     #98971a;
-      #     --uc-identity-colour-yellow:    #d79921;
-      #     --uc-identity-colour-orange:    #D65d0e;
-      #     --uc-identity-colour-red:       #fb4934;
-      #     --uc-identity-colour-pink:      #b16286;
-      #     --uc-identity-colour-purple:    #786FA6;
+        @media (prefers-color-scheme: dark) { :root {
+          /* These colours are (mainly) used by the
+            Container Tabs Plugin */
+          --uc-identity-colour-blue:      #458588;
+          --uc-identity-colour-turquoise: #689d6a;
+          --uc-identity-colour-green:     #98971a;
+          --uc-identity-colour-yellow:    #d79921;
+          --uc-identity-colour-orange:    #D65d0e;
+          --uc-identity-colour-red:       #fb4934;
+          --uc-identity-colour-pink:      #b16286;
+          --uc-identity-colour-purple:    #786FA6;
 
-      #     /*  Cascades main Colour Scheme */
-      #     --uc-base-colour:               #282828;
-      #     --uc-highlight-colour:          #3c3836;
-      #     --uc-inverted-colour:           #ebdbb2;
-      #     --uc-muted-colour:              var(--uc-identity-colour-yellow);
-      #     --uc-accent-colour:             var(--uc-identity-colour-green);
-      #   }}
+          /*  Cascades main Colour Scheme */
+          --uc-base-colour:               #282828;
+          --uc-highlight-colour:          #3c3836;
+          --uc-inverted-colour:           #ebdbb2;
+          --uc-muted-colour:              var(--uc-identity-colour-yellow);
+          --uc-accent-colour:             var(--uc-identity-colour-green);
+        }}
 
-      #   @media (prefers-color-scheme: light) { :root {
-      #     /* These colours are (mainly) used by the
-      #       Container Tabs Plugin */
-      #     --uc-identity-colour-blue:      #1D65F5;
-      #     --uc-identity-colour-turquoise: #209FB5;
-      #     --uc-identity-colour-green:     #40A02B;
-      #     --uc-identity-colour-yellow:    #E49320;
-      #     --uc-identity-colour-orange:    #FE640B;
-      #     --uc-identity-colour-red:       #FC5C65;
-      #     --uc-identity-colour-pink:      #EC83D0;
-      #     --uc-identity-colour-purple:    #822FEE;
+        @media (prefers-color-scheme: light) { :root {
+          /* These colours are (mainly) used by the
+            Container Tabs Plugin */
+          --uc-identity-colour-blue:      #1D65F5;
+          --uc-identity-colour-turquoise: #209FB5;
+          --uc-identity-colour-green:     #40A02B;
+          --uc-identity-colour-yellow:    #E49320;
+          --uc-identity-colour-orange:    #FE640B;
+          --uc-identity-colour-red:       #FC5C65;
+          --uc-identity-colour-pink:      #EC83D0;
+          --uc-identity-colour-purple:    #822FEE;
 
-      #     /*  Cascades main Colour Scheme */
-      #     --uc-base-colour:               #FAFAFC;
-      #     --uc-highlight-colour:          #DADADC;
-      #     --uc-inverted-colour:           #1E2021;
-      #     --uc-muted-colour:              #191B1C;
-      #     --uc-accent-colour:             var(--uc-identity-colour-purple);
-      #   }}
+          /*  Cascades main Colour Scheme */
+          --uc-base-colour:               #FAFAFC;
+          --uc-highlight-colour:          #DADADC;
+          --uc-inverted-colour:           #1E2021;
+          --uc-muted-colour:              #191B1C;
+          --uc-accent-colour:             var(--uc-identity-colour-purple);
+        }}
 
-      #   /* General edits */
+        /* General edits */
 
-      #   :root {
-      #     --uc-urlbar-min-width: 30vw;
-      #     --uc-urlbar-max-width: 45vw;
-      #   }
+        :root {
+          --uc-urlbar-min-width: 30vw;
+          --uc-urlbar-max-width: 45vw;
+        }
 
-      #   #tracking-protection-icon-container {
-      #     display: none !important;
-      #   }
+        #tracking-protection-icon-container {
+          display: none !important;
+        }
 
-      #   #context-savepage, #context-sep-selectall, #context-take-screenshot, #context-sep-screenshots {
-      #     display: none !important;
-      #   }
+        #context-savepage, #context-sep-selectall, #context-take-screenshot, #context-sep-screenshots {
+          display: none !important;
+        }
 
-      #   #context-openlinkprivate, #context-sendimage, #context-sep-setbackground, #context-setDesktopBackground, #context-searchselect, #context-searchselect-private, #context-sep-sendlinktodevice {
-      #     display: none !important;
-      #   }
+        #context-openlinkprivate, #context-sendimage, #context-sep-setbackground, #context-setDesktopBackground, #context-searchselect, #context-searchselect-private, #context-sep-sendlinktodevice {
+          display: none !important;
+        }
 
-      #   @media (min-width: 0px) {
-      #     #navigator-toolbox { display: flex; flex-wrap: wrap; flex-direction: row; }
+        @media (min-width: 0px) {
+          #navigator-toolbox { display: flex; flex-wrap: wrap; flex-direction: row; }
 
-      #     #nav-bar {
-      #       order: var(--uc-urlbar-position);
-      #       width: var(--uc-urlbar-min-width);
-      #     }
+          #nav-bar {
+            order: var(--uc-urlbar-position);
+            width: var(--uc-urlbar-min-width);
+          }
 
-      #     #nav-bar #urlbar-container { min-width: 40px !important; width: auto !important; }
+          #nav-bar #urlbar-container { min-width: 40px !important; width: auto !important; }
 
-      #     #titlebar {
-      #       order: 2;
-      #       width: calc(100vw - var(--uc-urlbar-min-width) - 1px);
-      #     }
+          #titlebar {
+            order: 2;
+            width: calc(100vw - var(--uc-urlbar-min-width) - 1px);
+          }
 
-      #     #PersonalToolbar {
-      #       order: var(--uc-toolbar-position);
-      #       width: 100%;
-      #     }
+          #PersonalToolbar {
+            order: var(--uc-toolbar-position);
+            width: 100%;
+          }
 
-      #     #navigator-toolbox:focus-within #nav-bar { width: var(--uc-urlbar-max-width); }
-      #     #navigator-toolbox:focus-within #titlebar { width: calc(100vw - var(--uc-urlbar-max-width) - 1px); }
+          #navigator-toolbox:focus-within #nav-bar { width: var(--uc-urlbar-max-width); }
+          #navigator-toolbox:focus-within #titlebar { width: calc(100vw - var(--uc-urlbar-max-width) - 1px); }
 
-      #   }
-      # '';
+        }
+      '';
 
       userContent = ''
 
