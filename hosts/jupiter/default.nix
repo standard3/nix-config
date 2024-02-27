@@ -28,8 +28,6 @@
     eza
     wget
     curl
-
-    armcord
   ];
 
   # Users
