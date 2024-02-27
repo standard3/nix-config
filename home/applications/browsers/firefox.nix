@@ -23,6 +23,7 @@ in {
     };
 
     # List of policies : https://mozilla.github.io/policy-templates/
+    # or https://github.com/mozilla/policy-templates/blob/master/linux/policies.json
     policies = {
       Homepage = {
         StartPage = "previous-session";
@@ -138,6 +139,7 @@ in {
       ];
 
       # Search for extensions : https://nur.nix-community.org/repos/rycee/
+      # If these extensions are disabled, try searching in {firefoxprofile}/extension-settings.json
       extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
         # Privacy
         clearurls
@@ -153,6 +155,8 @@ in {
         gruvbox-dark-theme
         tabcenter-reborn
         # todo: Copy declaratively the contents of firefox-cascade/integrations/tabcenter-reborn/tabcenter-reborn.css into the Addons settings
+        # search in about:debugging#/runtime/this-firefox
+        # then in ~.mozilla/firefox/default/storage/default/moz-extension+++8914d726-ed9a-4eee-9b3b-39f3ecbe4494
       ];
 
       settings = {
