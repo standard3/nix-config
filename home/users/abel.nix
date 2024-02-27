@@ -1,11 +1,6 @@
-{
-  inputs
-, lib
-, config
-, pkgs
-, home-manager
-, ...
-}: let
+{ inputs, outputs, lib, config, pkgs, home-manager, ...}:
+
+let
     username = "abel";
 in {
   imports = [
@@ -14,14 +9,6 @@ in {
     ../environments
     ../applications
   ];
-
-  nixpkgs = {
-    # Nixpkgs instance
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = _: true; # Workaround for https://github.com/nix-community/home-manager/issues/2942
-    };
-  };
 
   home = {
     username = username;
