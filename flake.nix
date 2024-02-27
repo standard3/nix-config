@@ -36,6 +36,9 @@
   let
     inherit (self) outputs;
   in {
+    # Custom packages and modifications, exported as overlays
+    overlays = import ./overlays { inherit inputs; };
+
     # NixOS configuration entrypoint
     nixosConfigurations = {
       jupiter = nixpkgs.lib.nixosSystem {
