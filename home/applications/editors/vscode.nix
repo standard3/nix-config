@@ -1,31 +1,40 @@
 { pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    rnix-lsp # Nix language server
+  ];
+
   programs.vscode = {
     enable = true;
 
-    # Allow mutable extensions
-    enableExtensionUpdateCheck = true;
-    mutableExtensionsDir = true;
-
-    # Disable update checks
-    enableUpdateCheck = false;
-
-    extensions = with pkgs.vscode-extensions; [
+    package = (pkgs.unstable.vscode-with-extensions.override {
+      vscodeExtensions = with pkgs.unstable.vscode-extensions; [
       # Languages
       jnoortheen.nix-ide
       rust-lang.rust-analyzer
       ms-python.python
-      # tamasfe.even-better-toml
+      tamasfe.even-better-toml
 
       # Themes & icons
       jdinhlife.gruvbox
       pkief.material-icon-theme
+      kamikillerto.vscode-colorize
 
       # Utilities
-      # github.copilot
-      # github.copilot-chat
+      github.copilot
+      github.copilot-chat
     ];
+    }).overrideAttrs (old: {
+        inherit (pkgs.unstable.vscode) pname version;
+    });
+
+    # Disable mutable extensions
+    enableExtensionUpdateCheck = false;
+    mutableExtensionsDir = false;
+
+    # Disable update checks
+    enableUpdateCheck = false;
 
     userSettings = {
       # Window
@@ -79,8 +88,4 @@
       "nix.serverPath" = "rnix-lsp";
     };
   };
-
-  home.packages = with pkgs; [
-    rnix-lsp # Nix language server
-  ];
 }
