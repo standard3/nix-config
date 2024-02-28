@@ -1,8 +1,11 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     armcord
   ];
 
-  # todo: manually configure armcord xdg files
+  # todo: Manually edit armcord config file in .config/Armcord/
+  # - add vencord
+  # - add custom css
+  # - add custom plugins
 }
