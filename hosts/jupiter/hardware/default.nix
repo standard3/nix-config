@@ -13,6 +13,7 @@
     tailor-gui.enable = true;
   };
 
-  # powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  powerManagement.enable = true;
+
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

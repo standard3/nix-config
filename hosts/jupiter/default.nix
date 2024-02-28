@@ -47,6 +47,17 @@
 
   programs.fish.enable = true;
 
+  # Enable hyprland
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+
+    xwayland.enable = true;
+  };
+
+  # Hint electron apps to use wayland
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
 }

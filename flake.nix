@@ -25,7 +25,11 @@
       url = "github:dj95/zjstatus";
     };
 
+    # NixOS hardware
     hardware.url = "github:nixos/nixos-hardware";
+
+    # Hyprland
+    hyprland.url = "github:hyprwm/Hyprland";
 
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
