@@ -45,11 +45,14 @@
     nvidia-vaapi-driver
     udiskie
     xdg-utils
-    light
+    brightnessctl
     playerctl
+    pavucontrol
+    networkmanagerapplet
 
     # Wayland
     unstable.way-displays
+    unstable.hyprpaper
     wlr-randr
     wl-clipboard
     hyprpicker
@@ -59,6 +62,7 @@
   ];
 
   security.polkit.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   systemd = {
     user.services.polkit-kde-authentication-agent-1 = {

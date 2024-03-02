@@ -178,7 +178,10 @@
       vim = "nvim";
 
       # Hyprland
-      hyprland-debug="watch -n 0.1 'bat /tmp/hypr/$(echo $HYPRLAND_INSTANCE_SIGNATURE)/hyprland.log | grep -v \"arranged\" | tail -n 40'";
+      hyprland-debug = "watch -n 0.1 'bat /tmp/hypr/$(echo $HYPRLAND_INSTANCE_SIGNATURE)/hyprland.log | grep -v \"arranged\" | tail -n 40'";
+
+      # Nix
+      rebuild = "sudo nixos-rebuild switch --flake ~/dev/nix-config/#jupiter";
     };
   };
 }

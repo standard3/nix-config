@@ -1,7 +1,10 @@
 { inputs, pkgs, ... }:
 
 {
-  imports = [ ./way-displays.nix ];
+  imports = [
+    ./way-displays.nix
+    ./hyprpaper.nix
+  ];
 
   # look for :
   # - https://github.com/hyprwm/hypridle
@@ -29,19 +32,13 @@
         # Wallpaper
         # "swww init && swww img ~/.config/eww/images/wallpaper --transition-step 230 --transition-fps 60 --transition-type grow --transition-angle 30 --transition-duration 1"
 
-        # Status bar
-        # "eww daemon && eww open bar && eww open b"
-
         # Screenshots
         # "c-once=QT_QPA_PLATFORM=xcb flameshot &"
 
         # Core components (authentication, lock screen, notification daemon)
-        # "dbus-update-activation-environment --all &"
-        # "sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        # "/usr/bin/gnome-keyring-daemon --start --components=secrets &"
-        # "/usr/lib/polkit-kde-authentication-agent-1 &"
         # "swayidle -w timeout 300 'gtklock' before-sleep 'gtklock' &"
         # "swayidle -w timeout 450 'systemctl suspend' &"
+        "${pkgs.networkmanagerapplet}/bin/nm-applet &"
 
         # Clipboard history
         # "wl-paste --watch cliphist store &"
@@ -274,7 +271,7 @@
 
       binde = [
         # Volume
-        ", XF86AudioMicMute, exec, volumectl -m toggle-mute"
+        ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
         # Media
         ", XF86AudioNext, exec, playerctl next"
@@ -285,17 +282,17 @@
 
       bindl = [
         # Volume
-        ", XF86AudioMute, exec, volumectl toggle-mute"
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
       ];
 
       bindle = [
         # Volume
-        ", XF86AudioRaiseVolume, exec, volumectl -u up"
-        ", XF86AudioLowerVolume, exec, volumectl -u down"
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
 
         # Brightness
-        ", XF86MonBrightnessUp,   exec, light -A 3"
-        ", XF86MonBrightnessDown, exec, light -U 3"
+        ", XF86MonBrightnessUp,   exec, brightnessctl set 5%+"
+        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
       ];
 
       # Window rules

@@ -2,16 +2,17 @@
 
 {
   home.file = let
-    defaultWallpaper = assets/wallpapers/sea.png;
+    defaultWallpaper = ../../../../assets/wallpapers/sea.png;
     wallpaperPath = ".config/hypr/default.png";
   in {
     ".config/hypr/hyprpaper.conf".text = ''
-      preload = ${wallpaperPath}
+      preload   = ~/${wallpaperPath}
+      wallpaper = , ~/${wallpaperPath}
       splash = true
       ipc = off
     '';
 
-    wallpaperPath.source = defaultWallpaper;
+    "${wallpaperPath}".source = defaultWallpaper;
   };
 
   systemd.user.services.hyprpaper = {

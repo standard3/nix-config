@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   programs.waybar = {
     enable = true;
@@ -16,17 +18,16 @@
 
         modules-left   = [
           "clock"
-          "idle_inhibitor"
           "custom/weather"
           "hyprland/window"
         ];
         modules-center = [ "hyprland/workspaces" ];
         modules-right  = [
+          "wireplumber"
+          # "custom/gpu"
           # "custom/cpugovernor"
           "cpu"
           "temperature"
-          # "custom/gpu"
-          "wireplumber"
           "bluetooth"
           "network"
           "tray"
@@ -63,15 +64,6 @@
           # on-click = "gnome-calendar";
         };
 
-        "idle_inhibitor" = {
-          format = "{icon}";
-          format-icons = {
-            "activated" = " ";
-            "deactivated" = " ";
-          };
-          tooltip = true;
-        };
-
         "network" = {
           # interface = "wlan0"; // (Optional) To force the use of this interface,
           format-wifi = "  {essid}";
@@ -87,7 +79,7 @@
         };
 
         "wireplumber" = {
-            format = "{icon} {volume}% {format_source}";
+            format = "{volume}%";
             format-muted = " {format_source}";
             format-icons = {
                 headphone = "";
@@ -101,33 +93,42 @@
 
             scroll-step = 3; # %, can be a float
             reverse-scrolling = true;
-            # on-click = "pavucontrol";
-            # on-click-right = "pactl set-source-mute @DEFAULT_SOURCE@ toggle";
+            on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
+            on-click-right = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        };
+
+        "bluetooth" = {
+          format = "{icon}";
+          format-icons = {
+            connected = "";
+            disconnected = "";
+          };
+          on-click = "blueman-manager";
         };
 
         "custom/weather" = {
-          exec = "curl 'https://wttr.in/?format=1'";
+          exec = "curl 'https://wttr.in/?0pq&lang=fr&format=3'";
           interval = 3600;
         };
 
         # System metrics
         "cpu" = {
-          interval = 1;
-          format = "  {max_frequency}GHz <span color=\"darkgray\">| {usage}%</span>";
+          interval = 4;
+          format = "  {max_frequency}GHz 󰇝 {usage}%";
           max-length = 13;
           min-length = 13;
-          # on-click = "kitty -e htop --sort-key PERCENT_CPU";
+          on-click = "alacritty -e btop";
           tooltip = false;
         };
 
         "temperature" = {
-            #thermal-zone = 1;
+            # CPU thermal zone, see with cat /sys/class/thermal/thermal_zone*/type
+            thermal-zone = 0;
             interval = 4;
-            hwmon-path = "/sys/class/hwmon/hwmon3/temp1_input";
-            critical-threshold = 74;
+            critical-threshold = 85;
             format-critical = "  {temperatureC}°C";
             format = "{icon}  {temperatureC}°C";
-            format-icons = ["" "" ""];
+            format-icons = ["" "" ""];
             max-length = 7;
             min-length = 7;
         };
