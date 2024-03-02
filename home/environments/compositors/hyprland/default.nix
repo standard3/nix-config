@@ -22,7 +22,6 @@
       # Monitor configuration
       monitor = [
         ", highrr,      auto, 1"
-        ", addreserved, 40,   0, 0, 0"
       ];
 
       # Core components (authentication, idle daemon, etc.)
