@@ -13,6 +13,8 @@
     tailor-gui.enable = true;
   };
 
+  services.hardware.bolt.enable = true;
+
   powerManagement.enable = true;
 
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

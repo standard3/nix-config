@@ -9,7 +9,7 @@
     extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
 
     extraModprobeConfig = ''
-      options i915 force_probe=46a6
+      options i915 force_probe=25ac
     '';
   };
 
