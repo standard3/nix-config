@@ -16,6 +16,7 @@ in {
   # Options : https://mipmip.github.io/home-manager-option-search/?query=firefox
   programs.firefox = {
     enable = true;
+    package = pkgs.firefox-wayland;
 
     arkenfox = {
       enable = true;
