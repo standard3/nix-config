@@ -1,6 +1,6 @@
 {
   imports = [
-    ./compositors/hyprland
+    ./compositors
     ./desktop/kde
   ];
 }
