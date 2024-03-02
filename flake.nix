@@ -30,6 +30,10 @@
 
     # Hyprland
     hyprland.url = "github:hyprwm/Hyprland";
+    anyrun = {
+      url = "github:Kirottu/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
