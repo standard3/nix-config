@@ -4,6 +4,7 @@
   imports = [
     ./way-displays.nix
     ./hyprpaper.nix
+    ./hyprlock.nix
   ];
 
   # look for :
