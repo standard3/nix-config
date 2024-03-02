@@ -1,5 +1,18 @@
 {
-  home.file.".config/way-displays/cfg.yaml".content = ''
+  # home.file.".stack/config.yaml".text = lib.generators.toYAML {} {
+  #   templates = {
+  #     scm-init = "git";
+  #     params = {
+  #       author-name = config.programs.git.userName;
+  #       author-email = config.programs.git.userEmail;
+  #       github-username = "malob";
+  #     };
+  #   };
+  #   nix.enable = true;
+  #   recommend-stack-upgrade = false;
+  # };
+
+  home.file.".config/way-displays/cfg.yaml".text = ''
     # Default cfg.yaml for way-displays.
     # Copy this to ~/.config/way-displays/cfg.yaml and edit it to your liking.
     #
