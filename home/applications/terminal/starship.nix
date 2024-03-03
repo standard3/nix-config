@@ -84,33 +84,36 @@
       };
 
       direnv = {
+        disabled = false;
         symbol = "📦";
-        style = "fg:#535411 bg:#b8bb26";
-        format = "[$symbol $status ]($style)";
+        allowed_msg = "";
+        denied_msg = "❌";
+        style = "fg:#363231 bg:#b8bb26";
+        format = "[ $symbol$allowed$denied]($style)";
       };
 
       # Languages modules
       c = {
-        symbol = " ";
-        style = "fg:#535411 bg:#b8bb26";
+        symbol = "";
+        style = "fg:#363231 bg:#b8bb26";
         format = "[ $symbol ($version) ]($style)";
       };
 
       python = {
-        symbol = " ";
-        style = "fg:#535411 bg:#b8bb26";
+        symbol = "";
+        style = "fg:#363231 bg:#b8bb26";
         format = "[ $symbol ($version) ]($style)";
       };
 
       nim = {
-        symbol = " ";
-        style = "fg:#535411 bg:#b8bb26";
+        symbol = "";
+        style = "fg:#363231 bg:#b8bb26";
         format = "[ $symbol ($version) ]($style)";
       };
 
       rust = {
-        symbol = " ";
-        style = "fg:#535411 bg:#b8bb26";
+        symbol = "";
+        style = "fg:#363231 bg:#b8bb26";
         format = "[ $symbol ($version) ]($style)";
       };
     };
