@@ -10,29 +10,29 @@
 
     package = (pkgs.unstable.vscode-with-extensions.override {
       vscodeExtensions = with pkgs.unstable.vscode-extensions; [
-      # Languages
-      jnoortheen.nix-ide
-      rust-lang.rust-analyzer
-      ms-python.python
-      tamasfe.even-better-toml
+        # Languages
+        jnoortheen.nix-ide
+        rust-lang.rust-analyzer
+        ms-python.python
+        tamasfe.even-better-toml
 
-      # Themes & icons
-      jdinhlife.gruvbox
-      pkief.material-icon-theme
-      kamikillerto.vscode-colorize
+        # Themes & icons
+        jdinhlife.gruvbox
+        pkief.material-icon-theme
+        kamikillerto.vscode-colorize
 
-      # Utilities
-      github.copilot
-      github.copilot-chat
-      arrterian.nix-env-selector
-    ];
+        # Utilities
+        github.copilot
+        github.copilot-chat
+        arrterian.nix-env-selector
+      ];
     }).overrideAttrs (old: {
-        inherit (pkgs.unstable.vscode) pname version;
+      inherit (pkgs.unstable.vscode) pname version;
     });
 
-    # Disable mutable extensions
+    # Enable mutable extensions, allows to temporilary disable extensions from the UI
+    mutableExtensionsDir = true;
     enableExtensionUpdateCheck = false;
-    mutableExtensionsDir = false;
 
     # Disable update checks
     enableUpdateCheck = false;
