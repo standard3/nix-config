@@ -5,12 +5,11 @@
     ./way-displays.nix
     ./hyprpaper.nix
     ./hyprlock.nix
+    ./hypridle.nix
   ];
 
   # look for :
   # - https://github.com/hyprwm/hypridle
-  # - https://github.com/hyprwm/hyprlock
-  # - https://github.com/hyprwm/hyprpaper
   # - https://sr.ht/~emersion/kanshi/
   # - https://github.com/alex-courtis/way-displays
 
@@ -175,8 +174,7 @@
         # "SUPER,       C,      exec, pkill fuzzel || cliphist list | fuzzel --no-fuzzy --dmenu | cliphist decode | wl-copy"
 
         # Lock screen
-        # "SUPER,       L,      exec, swaylock -f --config ~/.config/swaylock/config"
-        # "SUPER SHIFT, L,      exec, swaylock -f --config ~/.config/swaylock/config && systemctl suspend"
+        "SUPER,       L,      exec, ${inputs.hyprlock.packages.${pkgs.system}.default}/bin/hyprlock"
 
         # Actions
         "SUPER,       Q,     killactive,"
