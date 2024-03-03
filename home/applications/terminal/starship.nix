@@ -15,6 +15,7 @@
         "$git_branch"
         "$git_status"
         "[](fg:#48423E bg:#b8bb26)"
+        "$direnv"
         "$c"
         "$python"
         "$nim"
@@ -80,6 +81,12 @@
       cmd_duration = {
         min_time = 500;
         format = " [$duration](#fbf1c7)";
+      };
+
+      direnv = {
+        format = "[📦 $symbol $status ]($style)";
+        style = "fg:#fabd2f bg:#504945";
+        disabled = false;
       };
 
       # Languages modules
