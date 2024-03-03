@@ -84,9 +84,9 @@
       };
 
       direnv = {
-        format = "[📦 $symbol $status ]($style)";
-        style = "fg:#fabd2f bg:#504945";
-        disabled = false;
+        symbol = "📦";
+        style = "fg:#535411 bg:#b8bb26";
+        format = "[$symbol $status ]($style)";
       };
 
       # Languages modules
