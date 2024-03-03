@@ -6,6 +6,7 @@
     ./boot.nix
     ./filesystem.nix
     ./nvidia.nix
+    ./pm.nix
   ];
 
   hardware.tuxedo-rs = {
