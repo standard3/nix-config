@@ -9,7 +9,6 @@
   ];
 
   # look for :
-  # - https://github.com/hyprwm/hypridle
   # - https://sr.ht/~emersion/kanshi/
   # - https://github.com/alex-courtis/way-displays
 
@@ -29,9 +28,6 @@
 
       # Core components (authentication, idle daemon, etc.)
       exec-once = [
-        # Wallpaper
-        # "swww init && swww img ~/.config/eww/images/wallpaper --transition-step 230 --transition-fps 60 --transition-type grow --transition-angle 30 --transition-duration 1"
-
         # Screenshots
         # "c-once=QT_QPA_PLATFORM=xcb flameshot &"
 
@@ -155,6 +151,9 @@
         animate_mouse_windowdragging = false;
         #suppress_portal_warnings = true;
         enable_swallow = true;
+
+        mouse_move_enables_dpms = true;
+        key_press_enables_dpms = true;
 
         disable_autoreload = false;
         disable_hyprland_logo = true;
