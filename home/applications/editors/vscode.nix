@@ -24,6 +24,7 @@
       # Utilities
       github.copilot
       github.copilot-chat
+      arrterian.nix-env-selector
     ];
     }).overrideAttrs (old: {
         inherit (pkgs.unstable.vscode) pname version;
