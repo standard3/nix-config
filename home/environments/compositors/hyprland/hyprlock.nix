@@ -12,26 +12,42 @@
       hide_cursor = true;
     };
 
-    backgrounds = {
-      blur_size = 8;
-      blur_passes = 0;
-    };
+    backgrounds = [
+      {
+        # path = ".config/hypr/default.png";
+        color = "rgba(22, 22, 22, 1.0)";
+        blur_size = 80;
+        blur_passes = 10;
+      }
+    ];
 
-    input-fields = {
-      outline_thickness = 3;
-      dots_size = 0.33;
-      dots_spacing = 0.15;
-      outer_color = "rgb(151515)";
-      inner_color = "rgb(200, 200, 200)";
-      font_color = "rgb(10, 10, 10)";
-      placeholder_text = "<i>Input Password...</i>";
-      hide_input = true;
-    };
+    input-fields = [
+      {
+        size = {
+          width = 300;
+          height = 50;
+        };
 
-    labels = {
-      text = "Welcome";
-      color = "rgba(200, 200, 200, 1.0)";
-      font_family = "Lexend";
-    };
+        outline_thickness = 2;
+
+        outer_color = "rgb(151515)";
+        inner_color = "rgb(200, 200, 200)";
+        font_color = "rgb(10, 10, 10)";
+
+        placeholder_text = "<i>Password...</i>";
+        # hide_input = true;
+
+        dots_size = 0.25;
+        dots_spacing = 0.15;
+      }
+    ];
+
+    labels = [
+      {
+        text = "$TIME";
+        color = "rgba(200, 200, 200, 1.0)";
+        font_family = "Lexend";
+      }
+    ];
   };
 }
