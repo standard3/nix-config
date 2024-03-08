@@ -27,10 +27,10 @@
       }
       {
         timeout = 600;
-        onTimeout =
-          "${hyprlandPkg}/bin/hyprctl dispatch dpms off";
-        onResume =
-          "${hyprlandPkg}/bin/hyprctl dispatch dpms on";
+        # onTimeout =
+        #   "${hyprlandPkg}/bin/hyprctl dispatch dpms off";
+        # onResume =
+        #   "${hyprlandPkg}/bin/hyprctl dispatch dpms on";
       }
       {
         timeout = 900;
