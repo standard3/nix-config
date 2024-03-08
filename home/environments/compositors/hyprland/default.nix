@@ -23,7 +23,8 @@
 
       # Monitor configuration
       monitor = [
-        ", highrr,      auto, 1"
+        ",      preferred,    auto, 1"
+        "eDP-1, 2880x1800@90, auto, 1.2"
       ];
 
       # Core components (authentication, idle daemon, etc.)
@@ -78,13 +79,10 @@
         # Gaps and border
         gaps_in = 4;
         gaps_out = 4;
-        border_size = 1;
+        border_size = 3;
 
-        # Fallback colors
-        # col = {
-        #   active_border = "rgba(0DB7D4FF) rgba(7AA2F7FF) rgba(9778D0FF) 45deg";
-        #   inactive_border = "rgba(04404aaa)";
-        # };
+        "col.active_border" = "rgb(98971a)";
+        "col.inactive_border" = "rgb(282828)";
 
         # Functionality
         # resize_on_border = true;
@@ -144,7 +142,7 @@
       };
 
       misc = {
-        vfr = 1;
+        vfr = true;
         vrr = 1;
         focus_on_activate = true;
         animate_manual_resizes = false;
@@ -181,6 +179,7 @@
         "SUPER,       J,     togglesplit,"
         "SUPER,       F,     fullscreen, 0"
         "SUPER Shift, F,     fullscreen, 1"
+        "SUPER,       Y,     pin"
 
         # Swap windows
         "SUPER SHIFT, left,  movewindow, l"
@@ -291,6 +290,12 @@
         # Brightness
         ", XF86MonBrightnessUp,   exec, brightnessctl set 5%+"
         ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+
+        # Resize window
+        "SUPER ALT, left,    resizeactive, -20 0"
+        "SUPER ALT, right,   resizeactive, 20 0"
+        "SUPER ALT, up,      resizeactive, 0 -20"
+        "SUPER ALT, down,    resizeactive, 0 20"
       ];
 
       # Window rules
