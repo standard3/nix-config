@@ -9,7 +9,7 @@
 
     general = {
       grace = 5;
-      hide_cursor = true;
+      hide_cursor = false;
     };
 
     backgrounds = [
