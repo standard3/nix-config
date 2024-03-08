@@ -25,6 +25,7 @@
         github.copilot
         github.copilot-chat
         arrterian.nix-env-selector
+        vscodevim.vim
       ];
     }).overrideAttrs (old: {
       inherit (pkgs.unstable.vscode) pname version;
