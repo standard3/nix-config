@@ -6,12 +6,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # Flake-parts
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
-
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
@@ -63,10 +57,7 @@
     # Custom packages and modifications, exported as overlays
     overlays = import ./overlays { inherit inputs; };
 
-    # Flake parts
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [ ./flake ];
-    };
+    homeManagerModules = import ./modules/home-manager;
 
     # NixOS configuration entrypoint
     nixosConfigurations = {
