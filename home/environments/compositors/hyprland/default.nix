@@ -33,9 +33,6 @@
         # Screenshots
         # "c-once=QT_QPA_PLATFORM=xcb flameshot &"
 
-        # Core components (authentication, lock screen, notification daemon)
-        # "swayidle -w timeout 300 'gtklock' before-sleep 'gtklock' &"
-        # "swayidle -w timeout 450 'systemctl suspend' &"
         "${pkgs.networkmanagerapplet}/bin/nm-applet &"
 
         # Clipboard history

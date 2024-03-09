@@ -2,7 +2,8 @@
 
 ## Applications
 
-- [ ] Add a notification manager => see [SwayNotificationCente](https://github.com/ErikReider/SwayNotificationCenter) and https://github.com/zDyanTB/HyprNova
+- [x] Add a notification manager => see [SwayNotificationCente](https://github.com/ErikReider/SwayNotificationCenter) and https://github.com/zDyanTB/HyprNova
+    - [ ] Finish configuration
 - [ ] Add yazi file manager
 - [ ] Add Youtube Music
 - [ ] Add Obsidian
