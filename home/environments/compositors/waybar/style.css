@@ -85,6 +85,7 @@
 #backlight,
 #language,
 #window,
+#custom-powermenu,
 #custom-cpugovernor {
     padding-left: 0.6em;
     padding-right: 0.6em;
@@ -134,9 +135,13 @@
 /* Workspaces */
 #workspaces button {
     color: @gbb_green;
-    padding: 0.1em;
     background: none;
     font-size: 1.2em;
+
+    padding-left: 0.1em;
+    padding-right: 0.1em;
+    margin-left: 0.1em;
+    margin-right: 0.1em;
 }
 
 #workspaces button.focused {
@@ -150,7 +155,6 @@
 #workspaces button.urgent {
     border-color: @gbb_red;
     color: @gbb_red;
-    opacity: 1;
 }
 
 /* Window name */
@@ -183,6 +187,15 @@
     color: @background;
     font-weight: bold;
     padding: 0 0.6em;
+}
+
+/* Custom power menu */
+#custom-powermenu {
+    background: @background;
+    color: @gbn_blue;
+    font-size: 2em;
+    font-weight: bold;
+    /* padding: 0em; */
 }
 
 /* Network */
@@ -266,5 +279,6 @@
 
 /* Tray icons */
 #tray {
-    background: @background;
+    background: @foreground;
+    color: @background;
 }
