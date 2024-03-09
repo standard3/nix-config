@@ -51,23 +51,26 @@
   };
 
   outputs = { self, hardware, nixpkgs, home-manager, ... } @ inputs:
-  let
-    inherit (self) outputs;
-  in {
-    # Custom packages and modifications, exported as overlays
-    overlays = import ./overlays { inherit inputs; };
+    let
+      inherit (self) outputs;
+    in
+    {
+      formatter = nixpkgs.alejandra;
 
-    homeManagerModules = import ./modules/home-manager;
+      # Custom packages and modifications, exported as overlays
+      overlays = import ./overlays { inherit inputs; };
 
-    # NixOS configuration entrypoint
-    nixosConfigurations = {
-      jupiter = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs outputs; };
-        modules = [
-          hardware.nixosModules.tuxedo-infinitybook-pro14-gen7
-          ./hosts/jupiter
-        ];
+      homeManagerModules = import ./modules/home-manager;
+
+      # NixOS configuration entrypoint
+      nixosConfigurations = {
+        jupiter = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            hardware.nixosModules.tuxedo-infinitybook-pro14-gen7
+            ./hosts/jupiter
+          ];
+        };
       };
     };
-  };
 }
