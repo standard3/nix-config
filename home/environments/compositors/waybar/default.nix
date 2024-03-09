@@ -17,7 +17,7 @@
         # output = [ "eDP-1" "DP-3" ];
 
         modules-left   = [
-          "clock"
+          "custom/powermenu"
           "custom/weather"
           "hyprland/window"
         ];
@@ -31,6 +31,7 @@
           "bluetooth"
           "network"
           "tray"
+          "clock"
         ];
 
         # Hyprland
@@ -48,6 +49,9 @@
         "hyprland/workspaces" = {
           active-only = false;
           all-outputs = false;
+          persistent-workspaces = {
+            "*" = [ 1 2 3 4 5 6 7 8 ];
+          };
           format = "{icon}";
           format-icons = {
             default = ""; # empty
@@ -108,7 +112,12 @@
 
         "custom/weather" = {
           exec = "curl 'https://wttr.in/?0pq&lang=fr&format=3'";
-          interval = 3600;
+          interval = 600;
+        };
+
+        "custom/powermenu" = {
+          format = "";
+          on-click = "wlogout";
         };
 
         # System metrics
