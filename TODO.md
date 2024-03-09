@@ -26,6 +26,7 @@
 
 ## Enhancements
 
+- [ ] Finish configuring wlogout
 - [ ] Configure way-displays
     - [ ] Handle displays correctly
 - [ ] Enhance Git configuration
