@@ -111,7 +111,7 @@
         };
 
         "custom/weather" = {
-          exec = "curl 'https://wttr.in/?0pq&lang=fr&format=3'";
+          exec = "curl 'https://wttr.in/Angers, France?0pq&lang=fr&format=3'";
           interval = 600;
         };
 
