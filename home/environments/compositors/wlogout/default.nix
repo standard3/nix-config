@@ -1,12 +1,7 @@
 { pkgs, ... }:
 
 {
-  home.file = let
-    icons = ./icons;
-  in {
-    ".config/wlogout/hyprpaper.conf".source = icons;
-  };
-
+  home.file.".config/wlogout/icons".source = ./icons;
 
   programs.wlogout = {
     enable = true;

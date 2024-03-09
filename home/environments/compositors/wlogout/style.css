@@ -3,7 +3,6 @@ window {
     font-size: 16pt;
     color: #cdd6f4;
     background-color: rgba(24, 27, 32, 0.1);
-
 }
 
 button {
@@ -14,7 +13,6 @@ button {
     margin: 0px;
     animation: gradient_f 20s ease-in infinite;
     transition: all 0.3s ease-in-out;
-
 }
 
 button:focus {
@@ -57,7 +55,6 @@ button span {
     background-image: image(url("./icons/logout-hover.png"));
     border-radius: 50px 50px 0px 0px;
     margin: 0px 0px 0px 0px;
-
 }
 
 #suspend {
@@ -83,7 +80,6 @@ button span {
     margin: 0px 0px 0px 0px;
     border-radius: 50px 0px 50px 50px;
 }
-
 
 #lock {
     background-image: image(url("./icons/lock.png"));
