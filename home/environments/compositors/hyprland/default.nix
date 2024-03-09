@@ -23,8 +23,9 @@
 
       # Monitor configuration
       monitor = [
-        ",      preferred,    auto, 1"
-        "eDP-1, 2880x1800@90, auto, 1.2"
+        ",      preferred,     auto, 1"
+        "eDP-1, 2880x1800@90,  auto, 1.2"
+        "DP-3,  2560x1440@165, auto, 1"
       ];
 
       # Core components (authentication, idle daemon, etc.)
@@ -311,6 +312,11 @@
         "float, title:^(Open Folder)(.*)$"
         "float, title:^(Save As)(.*)$"
         "float, title:^(Library)(.*)$ "
+      ];
+
+      # Layer rules
+      layerrule = [
+        "blur, gtk-layer-shell"
       ];
     };
   };
