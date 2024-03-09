@@ -7,8 +7,8 @@
     </p>
     <div align="center">
         <img src="https://img.shields.io/badge/Built with Nix-grey?style=for-the-badge&logo=nixos&color=%23282828">
-        <img src="https://img.shields.io/github/commit-activity/m/standard3/nix-config?style=for-the-badge&color=%23282828&labelColor=%23B94700">
-        <img src="https://img.shields.io/github/stars/standard3/nix-config?style=for-the-badge&color=%23282828&labelColor=%23B94700">
+        <img src="https://img.shields.io/github/commit-activity/m/standard3/nix-config?style=for-the-badge&color=%23282828&labelColor=%23b8bb26">
+        <img src="https://img.shields.io/github/stars/standard3/nix-config?style=for-the-badge&color=%23282828&labelColor=%23fabd2f">
     </div>
 </div>
 
