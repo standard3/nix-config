@@ -26,8 +26,11 @@
 
 ## Enhancements
 
+- [ ] Configure way-displays
+    - [ ] Handle displays correctly
 - [ ] Enhance Git configuration
     - [ ] Handle personnal and school keys
     - [ ] Multiple QoL => see [video](https://www.youtube.com/watch?v=aolI_Rz0ZqY)
 - [ ] Rework Firefox styling settings
 - [ ] Add a README with features
+- [ ] Add `dashlane-cli` and integrate with `add-ssh`
