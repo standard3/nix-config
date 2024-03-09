@@ -61,7 +61,7 @@
     polkit-kde-agent
   ];
 
-  security.pam.services.hyprlock = {};
+  security.pam.services.hyprlock = { };
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
