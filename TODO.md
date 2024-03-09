@@ -4,10 +4,10 @@
 
 - [x] Add a notification manager => see [SwayNotificationCente](https://github.com/ErikReider/SwayNotificationCenter) and https://github.com/zDyanTB/HyprNova
     - [ ] Finish configuration
-- [ ] Add yazi file manager
+- [ ] Add Yazi file manager
 - [ ] Add Youtube Music
 - [ ] Add Obsidian
-- [ ] Add virtualbox
+- [ ] Add VirtualBox
 - [ ] Add LibreOffice
 - [ ] Add Thunderbird
 
