@@ -28,8 +28,8 @@
 ## Enhancements
 
 - [ ] Finish configuring wlogout
-- [ ] Configure way-displays
-    - [ ] Handle displays correctly
+- [x] Configure ~~way-displays~~ kanshi
+    - [x] Handle displays correctly
 - [ ] Enhance Git configuration
     - [ ] Handle personnal and school keys
     - [ ] Multiple QoL => see [video](https://www.youtube.com/watch?v=aolI_Rz0ZqY)
