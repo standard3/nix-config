@@ -25,7 +25,7 @@
       monitor = [
         ",      preferred,     auto, 1"
         "eDP-1, 2880x1800@90,  auto, 1.2"
-        "DP-3,  2560x1440@165, auto, 1"
+        "DP-3,  2560x1440@165, -2560x0, 1"
       ];
 
       # Core components (authentication, idle daemon, etc.)
@@ -53,9 +53,9 @@
         numlock_by_default = true;
 
         touchpad = {
-        disable_while_typing = true;
-            clickfinger_behavior = true;
-            scroll_factor = 0.5;
+          disable_while_typing = true;
+          clickfinger_behavior = true;
+          scroll_factor = 0.5;
         };
         scroll_method = "2fg";
       };
@@ -235,7 +235,7 @@
         "SUPER,      S,   togglespecialworkspace,"
         "SUPER CTRL, S,   togglespecialworkspace,"
         "ALT,        Tab, cyclenext"
-        "ALT,        Tab, bringactivetotop,"   # bring it to the top
+        "ALT,        Tab, bringactivetotop," # bring it to the top
 
         # Move active window to a workspace with mainMod + SHIFT + [0-9]
         "SUPER SHIFT, ampersand,  movetoworkspace, 1"
