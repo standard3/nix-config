@@ -8,7 +8,8 @@ let
     sha256 = "1gf65iypcc8lzp2s5mwbf71n77c9ldr0g9ic2p9w13hdax1q3qqw";
     name = "firefox-cascade";
   };
-in {
+in
+{
   imports = [
     inputs.arkenfox.hmModules.default
   ];
@@ -58,7 +59,7 @@ in {
         };
         UseSystemPrintDialog = true;
         EnableTrackingProtection = {
-          Value= true;
+          Value = true;
           Locked = true;
           Cryptomining = true;
           Fingerprinting = true;
@@ -133,7 +134,7 @@ in {
       bookmarks = [
         {
           name = "";
-          tags = [""];
+          tags = [ "" ];
           keyword = "";
           url = "";
         }
@@ -145,19 +146,16 @@ in {
         # Privacy
         clearurls
         privacy-badger
-        terms-of-service-didnt-read
+        # terms-of-service-didnt-read
 
         # Utilities
         ublock-origin
         sponsorblock
-        # dashlane
+        istilldontcareaboutcookies
+        # dashlane # can't figure out how to install it
 
         # Styling
         gruvbox-dark-theme
-        tabcenter-reborn
-        # todo: Copy declaratively the contents of firefox-cascade/integrations/tabcenter-reborn/tabcenter-reborn.css into the Addons settings
-        # search in about:debugging#/runtime/this-firefox
-        # then in ~.mozilla/firefox/default/storage/default/moz-extension+++8914d726-ed9a-4eee-9b3b-39f3ecbe4494
       ];
 
       settings = {
@@ -297,5 +295,6 @@ in {
     "x-scheme-handler/http"
     "x-scheme-handler/https"
     "x-scheme-handler/about"
-  ] (_: "firefox.desktop");
+  ]
+    (_: "firefox.desktop");
 }
