@@ -1,8 +1,9 @@
-{ inputs, outputs, lib, config, pkgs, home-manager, ...}:
+{ inputs, outputs, lib, config, pkgs, home-manager, ... }:
 
 let
-    username = "abel";
-in {
+  username = "abel";
+in
+{
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
@@ -22,7 +23,7 @@ in {
   programs.git = {
     enable = true;
 
-    userName  = "std3";
+    userName = "std3";
     userEmail = "67806187+standard3@users.noreply.github.com";
   };
 
