@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    armcord
+    vesktop
   ];
 
   # todo: Manually edit armcord config file in .config/Armcord/

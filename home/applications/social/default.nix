@@ -1,6 +1,6 @@
 {
   imports = [
-    ./armcord.nix
+    ./discord.nix
     ./element.nix
     ./signal.nix
   ];
