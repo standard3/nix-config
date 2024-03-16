@@ -10,5 +10,6 @@
     ./editors
     ./social
     ./terminal
+    ./tools
   ];
 }
