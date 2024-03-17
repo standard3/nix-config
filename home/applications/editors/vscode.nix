@@ -31,6 +31,7 @@
         vadimcn.vscode-lldb # debugging
         christian-kohler.path-intellisense
         oderwat.indent-rainbow
+        usernamehw.errorlens
       ];
     }).overrideAttrs (old: {
       inherit (pkgs.unstable.vscode) pname version;
