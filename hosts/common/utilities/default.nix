@@ -5,5 +5,6 @@
     ./locale.nix
     ./networking.nix
     ./sound.nix
+    ./virtualbox.nix
   ];
 }
