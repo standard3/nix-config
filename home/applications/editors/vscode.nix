@@ -17,6 +17,8 @@
         # ms-python.pylint
         ms-python.python
         ms-python.vscode-pylance
+	ms-vscode.cpptools-extension-pack
+	# maziac.asm-code-lens
 
         # Themes & icons
         jdinhlife.gruvbox
@@ -32,6 +34,7 @@
         christian-kohler.path-intellisense
         oderwat.indent-rainbow
         usernamehw.errorlens
+	tomoki1207.pdf
       ];
     }).overrideAttrs (old: {
       inherit (pkgs.unstable.vscode) pname version;
