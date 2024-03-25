@@ -17,6 +17,7 @@
 
       "git.ecole2600.com" = {
         hostname = "git.ecole2600.com";
+        user = "git";
         identityFile = "~/.ssh/2600";
       };
     };
