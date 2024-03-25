@@ -1,7 +1,7 @@
 {
   programs.ssh = {
     enable = true;
-    startAgent = true;
+    # addKeysToAgent = "yes";
 
     matchBlocks = {
       "github.com" = {
@@ -12,12 +12,12 @@
       "pwn.college" = {
         hostname = "pwn.college";
         user = "hacker";
-        identityFile = "~/.ssh/id_rsa";
+        identityFile = "~/.ssh/pwn.college";
       };
 
       "git.ecole2600.com" = {
         hostname = "git.ecole2600.com";
-        identityFile = "~/.ssh/pwn.college";
+        identityFile = "~/.ssh/2600";
       };
     };
   };
