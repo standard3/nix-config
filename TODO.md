@@ -36,3 +36,4 @@
 - [ ] Rework Firefox styling settings
 - [ ] Add a README with features
 - [ ] Add `dashlane-cli` and integrate with `add-ssh`
+- [ ] Add GitLens to vscode and get the pro sub through Github Education
