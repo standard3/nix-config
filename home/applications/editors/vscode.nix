@@ -36,6 +36,7 @@
         oderwat.indent-rainbow
         usernamehw.errorlens
         tomoki1207.pdf
+        ms-vsliveshare.vsliveshare
       ];
     }).overrideAttrs (old: {
       inherit (pkgs.unstable.vscode) pname version;
