@@ -6,6 +6,6 @@
     unstable.gef
     unstable.cutter
     unstable.cutterPlugins.rz-ghidra
-    unstable.pwntools
+    pwntools
   ];
 }
