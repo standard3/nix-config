@@ -68,6 +68,16 @@
     ];
 
     functions = {
+      copy-remote-vps = {
+        body = ''
+          # Update git submodules
+          git -C ~/dev/selfhosting submodule update --recursive --remote
+
+          # Copy everything to remote
+          rsync -avzu --exclude=".git/" ~/dev/selfhosting/ ubuntu@theoabel.com:/srv/compose/
+        '';
+      };
+
       cheat = {
         description = "Alias for cheat.sh";
         body = ''
@@ -76,8 +86,8 @@
       };
 
       list_dir = {
-          body = "if status --is-interactive; echo ''; ls; end;";
-          onVariable = "PWD";
+        body = "if status --is-interactive; echo ''; ls; end;";
+        onVariable = "PWD";
       };
 
       # wrapper for non-posix ssh-agent
@@ -132,9 +142,9 @@
     shellAbbrs = {
       # Git
       gco = "git checkout";
-      gs  = "git status";
-      gb  = "git branch";
-      ga  = "git add";
+      gs = "git status";
+      gb = "git branch";
+      ga = "git add";
       gaa = "git add .";
       # "gcm" = {
       #   expansion = "git commit -m '%'";
@@ -151,10 +161,10 @@
       # Navigating files and directories
       la = "eza -1 --icons --group-directories-first --grid --long --no-time --group --all";
       ls = "eza -1 --icons --group-directories-first";
-      l  = "eza --git --icons --group-directories-first --long --group --all";
+      l = "eza --git --icons --group-directories-first --long --group --all";
 
-      c    = "bat";
-      cat  = "bat";
+      c = "bat";
+      cat = "bat";
       catp = "bat --plain";
 
       cd = "z";
@@ -162,19 +172,19 @@
       # Utilities
       cl = "clear";
       ip = "ip -c";
-      h  = "history";
+      h = "history";
       hgrep = "history | rg $1";
       mkdir = "mkdir -p";
-      wget  = "wget -c";
+      wget = "wget -c";
 
       # System
       meminfo = "free -hlt --mega";
-      mostu   = "du -hsx * | sort -rh | head -10";
-      top     = "btop";
-      ciao    = "shutdown now";
+      mostu = "du -hsx * | sort -rh | head -10";
+      top = "btop";
+      ciao = "shutdown now";
 
       # Editors
-      vi  = "nvim";
+      vi = "nvim";
       vim = "nvim";
 
       # Hyprland
