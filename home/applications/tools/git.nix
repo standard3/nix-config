@@ -39,9 +39,7 @@
       fuck = "commit --amend -m";
       dc = "diff --cached";
       graph = "log --all --decorate --graph";
-      hist = ''
-        log --pretty=format:"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)" --graph --date=relative --decorate --all
-      '';
+      hist = "log --pretty=format:\"%Cgreen%h %Cblue[%cn] %Creset%cd %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all";
     };
 
     extraConfig = {
@@ -58,7 +56,7 @@
       pull.rebase = false;
       push.autoSetupRemote = true;
       fetch.writeCommitGraph = true;
-      branch.sort = "-comitterdate";
+      branch.sort = "-committerdate";
 
       rerere.enabled = true;
 
