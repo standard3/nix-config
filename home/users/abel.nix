@@ -19,14 +19,6 @@ in
   # Enable home-manager
   programs.home-manager.enable = true;
 
-  # todo: remove from here
-  programs.git = {
-    enable = true;
-
-    userName = "std3";
-    userEmail = "67806187+standard3@users.noreply.github.com";
-  };
-
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
