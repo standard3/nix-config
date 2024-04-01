@@ -16,7 +16,6 @@ let
 in
 {
   imports = [
-    # ./way-displays.nix
     ./hyprpaper.nix
     ./hyprlock.nix
     ./hypridle.nix
@@ -28,23 +27,13 @@ in
 
   services.kanshi = {
     enable = true;
-    systemdTarget = "hyprland-session.target";
+    systemdTarget = "graphical-session.target";
     profiles =
       let
         integratedMonitor = "eDP-1";
         externalMonitor = "DP-3";
       in
       {
-        # Lid
-        lid_closed = {
-          outputs = [
-            {
-              status = "enable";
-              criteria = externalMonitor;
-            }
-          ];
-        };
-
         # Dock
         undocked = {
           outputs = [
@@ -54,12 +43,30 @@ in
             }
           ];
         };
+
         docked = {
           outputs = [
             {
               status = "disable";
               criteria = integratedMonitor;
             }
+            {
+              status = "enable";
+              criteria = externalMonitor;
+            }
+          ];
+
+          exec =
+            let
+              moveworkspacetomonitor = workspace: monitor:
+                "${pkgs.hyprland}/bin/hyprctl dispatch moveworkspacetomonitor ${workspace} ${monitor}";
+            in
+            map (n: moveworkspacetomonitor n externalMonitor) [ "2" "3" "4" "5" "6" "7" "8" ];
+        };
+
+        # Lid
+        lid_closed = {
+          outputs = [
             {
               status = "enable";
               criteria = externalMonitor;
@@ -125,7 +132,7 @@ in
         "$mod" = "SUPER";
 
         env = [
-          # "WLR_DRM_DEVICES, /dev/dri/card0" # Iris Xe Graphics
+          #"WLR_DRM_DEVICES, /dev/dri/card0" # Iris Xe Graphics
           "WLR_DRM_DEVICES, /dev/dri/card1" # GeForce RTX 3050 6GB Laptop GPU
         ];
 
@@ -143,11 +150,11 @@ in
 
           "${pkgs.networkmanagerapplet}/bin/nm-applet &"
 
-          # Clipboard history
-          # "wl-paste --watch cliphist store &"
+          "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        ];
 
-          # Cursor
-          # "hyprctl setcursor Bibata-Modern-Classic 24"
+        exec = [
+          "systemctl --user restart kanshi"
         ];
 
         # General configuration
@@ -416,6 +423,10 @@ in
           # Applications
           "float, ^(steam)$"
           "float, ^(guifetch)$"
+
+          # Firefox Picture-in-Picture
+          "float, title:^(Picture-in-Picture)$"
+          "pin,   title:^(Picture-in-Picture)$"
 
           # Dialogs
           "float, title:^(Open File)(.*)$"
