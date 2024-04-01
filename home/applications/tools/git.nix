@@ -10,9 +10,6 @@
 
     iniContent.gpg = {
       format = "ssh";
-      ssh = {
-        allowedSignersFile = "${config.home.homeDirectory}/.ssh/allowed_signers";
-      };
     };
 
     signing = {
