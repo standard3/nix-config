@@ -45,6 +45,8 @@
     playerctl
     pavucontrol
     networkmanagerapplet
+    gparted
+    ntfs3g
 
     # Wayland
     unstable.way-displays
