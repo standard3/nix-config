@@ -9,6 +9,7 @@ in
     # inputs.nix-colors.homeManagerModule
     ../environments
     ../applications
+    ../utilities
   ];
 
   home = {
