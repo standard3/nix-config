@@ -280,7 +280,7 @@ in
 
           # Utilities
           "SUPER, P,      exec, ${change-display}"
-          # ",            PRINT,  exec, QT_QPA_PLATFORM=xcb flameshot gui"
+          ",      PRINT,  exec, ${pkgs.grim}/bin/grim -g '$(${pkgs.slurp}/bin/slurp)' - | ${pkgs.swappy}/bin/swappy -f "
           # "SUPER SHIFT, C,      exec, hyprpicker -a"
           # "SUPER,       C,      exec, pkill fuzzel || cliphist list | fuzzel --no-fuzzy --dmenu | cliphist decode | wl-copy"
 

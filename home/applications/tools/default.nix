@@ -3,7 +3,7 @@
 {
   imports = [
     ./cybersecurity.nix
-    ./flameshot.nix
+    ./screenshot.nix
     ./obsidian.nix
     ./ssh.nix
     ./git.nix
