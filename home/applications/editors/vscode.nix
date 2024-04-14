@@ -29,6 +29,7 @@
         # Utilities
         github.copilot
         github.copilot-chat
+        github.vscode-github-actions
         arrterian.nix-env-selector
         vscodevim.vim
         vadimcn.vscode-lldb # debugging
