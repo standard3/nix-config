@@ -132,8 +132,18 @@ in
         "$mod" = "SUPER";
 
         env = [
+          # Nvidia fixes
+          "LIBVA_DRIVER_NAME, nvidia"
+          "GBM_BACKEND, nvidia-drm"
+          "GDK_BACKEND, wayland, x11"
+          "__GLX_VENDOR_LIBRARY_NAME, nvidia"
+          "__GL_GSYNC_ALLOWED, 1"
+          "__GL_VRR_ALLOWED, 1"
           #"WLR_DRM_DEVICES, /dev/dri/card0" # Iris Xe Graphics
           "WLR_DRM_DEVICES, /dev/dri/card1" # GeForce RTX 3050 6GB Laptop GPU
+          "WLR_RENDERER_ALLOW_SOFTWARE, 1"
+          "WLR_DRM_NO_ATOMIC, 1"
+          "WLR_USE_LIBINPUT, 1"
         ];
 
         # Monitor configuration
