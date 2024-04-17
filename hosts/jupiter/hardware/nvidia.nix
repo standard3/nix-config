@@ -11,9 +11,10 @@
     extraModprobeConfig = ''
       options i915 force_probe=25ac
     '';
+    kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
   };
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware = {
     opengl = {
@@ -23,7 +24,7 @@
     };
 
     nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.production;
 
       open = false;
       nvidiaSettings = true;
@@ -35,7 +36,7 @@
       powerManagement.enable = false;
 
       prime = {
-        intelBusId  = "PCI:0:2:0";
+        intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
 
         sync.enable = true;
