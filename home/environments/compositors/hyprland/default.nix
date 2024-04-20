@@ -131,6 +131,8 @@ in
         # Variables
         "$mod" = "SUPER";
 
+	# See https://www.reddit.com/r/hyprland/comments/17j12jz/finally_got_xwayland_on_nvidia_working_perfectly/
+	# and https://wiki.hyprland.org/Nvidia/
         env = [
           # Nvidia fixes
           "LIBVA_DRIVER_NAME, nvidia"
