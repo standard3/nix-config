@@ -45,12 +45,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # KDE
+    plasma-manager = {
+      url = "github:pjones/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
     # nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { self, hardware, nixpkgs, home-manager, ... } @ inputs:
+  outputs = { self, hardware, nixpkgs, home-manager, plasma-manager, ... } @ inputs:
     let
       inherit (self) outputs;
     in
