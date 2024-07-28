@@ -12,6 +12,14 @@
     </div>
 </div>
 
+This repository contains my NixOS configuration for my personal devices. It is based on the [Nix package manager](https://nixos.org/) and [NixOS](https://nixos.org/).
+
+## 📦 Features
+
+This configuration is divided into two main hosts :
+
+**Jupiter** : my personal laptop, a Tuxedo InfinityBook 14
+
 > [!Note]
 > - Compositor : hyprland ecosystem (hyprlock, hypridle, hyprpaper)
 > - Theme : gruvbox
@@ -20,12 +28,24 @@
 > - Editor : vscode + neovim
 > - Nix : stable 23.11 + unstable overlay
 
+**Sun** : my personal server, a custom build
+
+> [!Note]
+> todo
+
 ## 🖥️ Usage
 
 On NixOS :
 ```bash
+# Make sure you have Nix 2.4+ installed
+$ nix --version
+# Opt-in to experimental features
+$ export NIX_CONFIG="experimental-features = nix-command flakes"
+
 # Jupiter host is made for a Tuxedo InfinityBook 14
 $ sudo nixos-rebuild switch --flake github:standard3/nix-config#jupiter
+# Sun host is made for a custom server
+$ sudo nixos-rebuild switch --flake github:standard3/nix-config#sun
 ```
 
 ## 📂 Folder logic
